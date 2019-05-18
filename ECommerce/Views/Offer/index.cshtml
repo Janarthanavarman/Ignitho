@@ -1,0 +1,61 @@
+@model IEnumerable<ECommerce.Models.offerModel>    
+       
+@{    
+        ViewData["Title"] = "Index";    
+    }    
+<h2>Offer DashBoard</h2>    
+<p>    
+    <a asp-action="create">Create New</a>    
+</p>    
+<table class="table">    
+    <thead>    
+        <tr>    
+            <th>    
+                @Html.DisplayNameFor(model => model.offercode)    
+            </th>    
+            <th>    
+                @Html.DisplayNameFor(model => model.name)    
+            </th>  
+              
+            <th>    
+                @Html.DisplayNameFor(model => model.description)    
+            </th>    
+            <th>    
+                @Html.DisplayNameFor(model => model.percentage)    
+            </th> 
+           
+            <th>    
+                @Html.DisplayNameFor(model => model.createon)    
+            </th>    
+            <th></th>    
+        </tr>    
+    </thead>    
+    <tbody>    
+        @foreach (var item in Model)    
+{    
+            <tr>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.offercode)    
+                </td>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.name)    
+                </td>    
+                 
+                <td>    
+                    @Html.DisplayFor(modelItem => item.description)    
+                </td>   
+                <td>    
+                    @Html.DisplayFor(modelItem => item.percentage)    
+                </td>
+               
+                <td>    
+                    @Html.DisplayFor(modelItem => item.createon)    
+                </td>  
+                <td>    
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |                          
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a> 
+                </td>    
+            </tr>    
+        }    
+    </tbody>    
+</table>
